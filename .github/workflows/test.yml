@@ -16,4 +16,4 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          echo ${{ GITHUB_ACTOR }}
+          echo $env:GITHUB_ACTOR
