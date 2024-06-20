@@ -17,11 +17,16 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Create and commit report
-        if: date +"$H" != $((( RANDOM % 24 )))
         run: |
-          date +%s > report.txt
-          git config user.name 'stevewithington'
-          git config user.email 'steve@digitalmine.com'
-          git add .
-          git commit -am 'Keeping my contibutions green!'
-          git push
+          current_hour=date +"$H"
+          random_hour=$((( RANDOM % 24 )))
+          if $current_hour != $random_hour; then
+            date +%s > report.txt
+            git config user.name 'stevewithington'
+            git config user.email 'steve@digitalmine.com'
+            git add .
+            git commit -am 'Keeping my contibutions green!'
+            git push
+          else
+            echo 'current hour ($current_hour) = random_hour ($random_hour)'
+          fi
