@@ -16,5 +16,5 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          echo ${{ USERNAME }}
-          echo ${{ EMAIL }}
+          echo {{ USERNAME }}
+          echo {{ EMAIL }}
