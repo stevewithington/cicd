@@ -22,9 +22,7 @@ jobs:
           random_hour=$((( RANDOM % 24 )))
 
           if [[ "$current_hour" != "$random_hour" ]]; then
-            echo 'Current Hour does NOT match Random Hour, continuing commit ...'
-            echo 'Current Hour: ' $current_hour
-            echo 'Random Hour: ' $random_hour
+            echo 'Current Hour (' $current_hour ') does NOT match Random Hour (' $random_hour '), continuing commit ...'
 
             date +%s > report.txt
             git config user.name 'stevewithington'
@@ -33,7 +31,5 @@ jobs:
             git commit -am 'Keeping my contibutions green!'
             git push
           else
-            echo 'Current Hour matches Random Hour, so skip commit'
-            echo 'Current Hour: ' $current_hour
-            echo 'Random Hour: ' $random_hour
+            echo 'Current Hour (' $current_hour ') MATCHES Random Hour (' $random_hour '), skipping commit!'
           fi
