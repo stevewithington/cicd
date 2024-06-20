@@ -16,6 +16,7 @@ jobs:
 
       - name: Run a multi-line script
         run: |
+          git pull origin main
           echo " " >> README.md
           git config user.name {{USERNAME}}
           git config user.email {{EMAIL}}
