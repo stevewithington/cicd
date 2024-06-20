@@ -17,10 +17,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Create and commit report
-        env:
-          CURRENT_HOUR: date +"$H"
-          RANDOM_HOUR: $((( RANDOM % 24 )))
-        if: $CURRENT_HOUR != $RANDOM_HOUR
+        if: date +"$H" != $((( RANDOM % 24 )))
         run: |
           echo 'Current Hour: $CURRENT_HOUR'
           echo 'Random Hour: $RANDOM_HOUR'
