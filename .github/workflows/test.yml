@@ -19,8 +19,8 @@ jobs:
 
       - name: Commit report
         run: |
-          git config user.name ${ GITHUB_ACTOR }
+          git config user.name 'stevewithington'
           git config user.email 'steve@digitalmine.com'
           git add .
-          git commit -am "Keeping my contibutions green!"
+          git commit -am 'Keeping my contibutions green!'
           git push
