@@ -22,6 +22,10 @@ jobs:
           random_hour=$((( RANDOM % 24 )))
 
           if [[ "$current_hour" != "$random_hour" ]]; then
+            echo 'Current Hour does NOT match Random Hour, continuing commit ...'
+            echo 'Current Hour: ' $current_hour
+            echo 'Random Hour: ' $random_hour
+
             date +%s > report.txt
             git config user.name 'stevewithington'
             git config user.email 'steve@digitalmine.com'
