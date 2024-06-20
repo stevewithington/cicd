@@ -18,9 +18,10 @@ jobs:
 
       - name: Create and commit report
         run: |
-          current_hour=date +"$H"
+          current_hour=$(date +"%H")
           random_hour=$((( RANDOM % 24 )))
-          if $current_hour != $random_hour; then
+
+          if [[ "$current_hour" != "$random_hour" ]]; then
             date +%s > report.txt
             git config user.name 'stevewithington'
             git config user.email 'steve@digitalmine.com'
@@ -28,5 +29,7 @@ jobs:
             git commit -am 'Keeping my contibutions green!'
             git push
           else
-            echo 'current hour ($current_hour) = random_hour ($random_hour)'
+            echo 'Current Hour matches Random Hour, so skip commit'
+            echo 'Current Hour: ' $current_hour
+            echo 'Random Hour: ' $random_hour
           fi
