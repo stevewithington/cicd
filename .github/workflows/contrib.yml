@@ -23,7 +23,6 @@ jobs:
 
           if [[ "$current_hour" != "$random_hour" ]]; then
             echo 'Current Hour (' $current_hour ') does NOT match Random Hour (' $random_hour '), continuing commit ...'
-
             date +%s > report.txt
             git config user.name 'stevewithington'
             git config user.email 'steve@digitalmine.com'
