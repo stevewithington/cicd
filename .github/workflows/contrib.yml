@@ -19,8 +19,6 @@ jobs:
       - name: Create and commit report
         if: date +"$H" != $((( RANDOM % 24 )))
         run: |
-          echo 'Current Hour: $CURRENT_HOUR'
-          echo 'Random Hour: $RANDOM_HOUR'
           date +%s > report.txt
           git config user.name 'stevewithington'
           git config user.email 'steve@digitalmine.com'
